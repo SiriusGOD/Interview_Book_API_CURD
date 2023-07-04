@@ -1,0 +1,259 @@
+{
+	"info": {
+		"_postman_id": "6078b271-c159-4608-9962-82ed96b097b6",
+		"name": "面試_書籍API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5277609"
+	},
+	"item": [
+		{
+			"name": "會員註冊",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Ken2",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "k722105566@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "k29033269",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://laravel.test/api/register",
+					"protocol": "http",
+					"host": [
+						"laravel",
+						"test"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "會員登入",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "s72210ken@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "k29033269",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://laravel.test/api/login",
+					"protocol": "http",
+					"host": [
+						"laravel",
+						"test"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新增書籍",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbGFyYXZlbC50ZXN0L2FwaS9sb2dpbiIsImlhdCI6MTY4ODM3OTkwNiwiZXhwIjoxNjg4MzgzNTA2LCJuYmYiOjE2ODgzNzk5MDYsImp0aSI6Ik1yd0tCWXRXTnU5b3RjSHEiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.zwmTarnc55jQQGIIVYSW0MhmzxFvXZ7IzDF_xRCSx9Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "Accept:application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Test\",\r\n  \"author\": \"Norris\",\r\n  \"publicationDate\": \"2023-07-03\",\r\n  \"category\": \"Fantasy\",\r\n  \"price\": 599,\r\n  \"quantity\": 30,\r\n  \"images\": [\r\n    {\r\n      \"name\": \"Sunshine\",\r\n      \"path\": \"https://images.unsplash.com/photo-1536484049453-85de4ea3db6a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1021&q=80\"\r\n    },\r\n     {\r\n      \"name\": \"Sunshine2\",\r\n      \"path\": \"https://images.unsplash.com/photo-1536484049453-85de4ea3db6a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1021&q=80\"\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://laravel.test/api/books",
+					"protocol": "http",
+					"host": [
+						"laravel",
+						"test"
+					],
+					"path": [
+						"api",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "獲取書籍列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"page\": 2,\r\n  \"size\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://laravel.test/api/books",
+					"protocol": "http",
+					"host": [
+						"laravel",
+						"test"
+					],
+					"path": [
+						"api",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "會取書籍資料 By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://laravel.test/api/books/8d45652a-80d5-4042-9dc4-ac52d80ff7df",
+					"protocol": "http",
+					"host": [
+						"laravel",
+						"test"
+					],
+					"path": [
+						"api",
+						"books",
+						"8d45652a-80d5-4042-9dc4-ac52d80ff7df"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刪除書籍",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbGFyYXZlbC50ZXN0L2FwaS9sb2dpbiIsImlhdCI6MTY4ODM3OTkwNiwiZXhwIjoxNjg4MzgzNTA2LCJuYmYiOjE2ODgzNzk5MDYsImp0aSI6Ik1yd0tCWXRXTnU5b3RjSHEiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.zwmTarnc55jQQGIIVYSW0MhmzxFvXZ7IzDF_xRCSx9Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://laravel.test/api/books/8d45652a-80d5-4042-9dc4-ac52d80ff7df",
+					"protocol": "http",
+					"host": [
+						"laravel",
+						"test"
+					],
+					"path": [
+						"api",
+						"books",
+						"8d45652a-80d5-4042-9dc4-ac52d80ff7df"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "更新書籍",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbGFyYXZlbC50ZXN0L2FwaS9sb2dpbiIsImlhdCI6MTY4ODM3OTkwNiwiZXhwIjoxNjg4MzgzNTA2LCJuYmYiOjE2ODgzNzk5MDYsImp0aSI6Ik1yd0tCWXRXTnU5b3RjSHEiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.zwmTarnc55jQQGIIVYSW0MhmzxFvXZ7IzDF_xRCSx9Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Test00\",\r\n  \"author\": \"Norris\",\r\n  \"publicationDate\": \"2023-07-03\",\r\n  \"category\": \"Fantasy\",\r\n  \"price\": 599,\r\n  \"quantity\": 30,\r\n  \"images\": [\r\n    {\r\n      \"name\": \"Sunshine111\",\r\n      \"path\": \"https://images.unsplash.com/photo-1536484049453-85de4ea3db6a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1021&q=80\"\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://laravel.test/api/books/8d45652a-80d5-4042-9dc4-ac52d80ff7df",
+					"protocol": "http",
+					"host": [
+						"laravel",
+						"test"
+					],
+					"path": [
+						"api",
+						"books",
+						"8d45652a-80d5-4042-9dc4-ac52d80ff7df"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
